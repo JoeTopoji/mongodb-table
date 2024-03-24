@@ -8,9 +8,11 @@ module.exports = async (filter, skip = 0, limit = 20) => {
 
   const cursor = collection.find(filter).skip(skip).limit(limit)
 
+  const count = await collection.countDocuments(filter)
+
   const result = await cursor.toArray()
 
   await client.close()
 
-  return result
+  return { result, count }
 }

@@ -1,5 +1,6 @@
 {
   "MONGO_URI": "mongodb://localhost:27017/",
-  "DB_NAME": "SEGRETI",
-  "COLLECTION_NAME": "secrets"
+  "DB_NAME": "test",
+  "COLLECTION_NAME": "test",
+  "FIELDS": ["ip", "ipv6", "email", "tld", "domain"]
 }

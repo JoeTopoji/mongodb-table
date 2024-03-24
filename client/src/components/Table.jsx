@@ -1,26 +1,25 @@
 import { TableHead } from './TableHead'
+import { FIELDS as field } from '../FIELDS.json'
 
-export const Table = ({ data }) => {
+export const Table = ({ data, handleInputChange }) => {
   return (
-    <div className='overflow-x-auto'>
-      <table className='table table-sm table-zebra'>
-        <TableHead />
-        {data && (
-          <tbody>
-            {data.map((row) => {
-              return (
-                <tr key={row['_id']}>
-                  <td>{row['TESTO1']}</td>
-                  <td>{row['TESTO2']}</td>
-                  <td>{row['EMAIL']}</td>
-                  <td>{row['TLD']}</td>
-                  <td>{row['DOMAIN']}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        )}
-      </table>
-    </div>
+    <table className='table table-xs table-zebra table-fixed '>
+      <TableHead handleInputChange={handleInputChange} />
+      {data && (
+        <tbody>
+          {data.map((row) => {
+            return (
+              <tr key={row['_id']} style={{ height: 12 }}>
+                <td>{row[field[0]]}</td>
+                <td>{row[field[1]]}</td>
+                <td>{row[field[2]]}</td>
+                <td>{row[field[3]]}</td>
+                <td>{row[field[4]]}</td>
+              </tr>
+            )
+          })}
+        </tbody>
+      )}
+    </table>
   )
 }
